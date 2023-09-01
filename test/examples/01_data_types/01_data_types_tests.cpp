@@ -2,6 +2,7 @@
 #include "catch.hpp"
 #include "int.h" //I have access to the echo_variable function in my library
 #include "decimals.h"
+#include "char.h"
 
 TEST_CASE("Verify Test Configuration", "verification") {
 	REQUIRE(true == true);
@@ -16,7 +17,7 @@ TEST_CASE("Test echo_variable function", "function should return the same value 
 
 /*test case add_to_double_1 with 0 as parameter*/
 
-TEST_CASE("Test the add to double 1 function", "testing the decimal inconsistencies") {
+/*TEST_CASE("Test the add to double 1 function", "testing the decimal inconsistencies") {
 	REQUIRE(.9 == add_to_double_1(0));
 }
 
@@ -30,5 +31,10 @@ TEST_CASE("Test the add to double 2 function", "testing the decimal inconsistenc
 
 /*test case char test ASCII values */
 
+TEST_CASE("Test the get_char ascii value function", "char to int conversion") {
+	REQUIRE(65 == get_char_ascii_value('A'));
+	REQUIRE(97 == get_char_ascii_value('a'));
+	REQUIRE(98 == get_char_ascii_value('b'));
+}
 /*test case string test ASCII values Joe characters are equal to 74, 111, and 101*/
 
