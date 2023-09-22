@@ -2,6 +2,7 @@
 #include "catch.hpp"
 #include "val_ref.h"
 #include "static.h"
+#include "default.h"
 
 TEST_CASE("Verify Test Configuration", "verification") {
 	REQUIRE(true == true);
@@ -27,4 +28,16 @@ TEST_CASE("Test static function","value of num persists across function calls") 
 TEST_CASE("Test static_2 function","??") 
 {
 	REQUIRE(static_var_2() == 6);
+}
+
+TEST_CASE("Testfucntion overloads","??") 
+{
+	REQUIRE(get_weekly_pay(52000) == 1000);
+	REQUIRE(get_weekly_pay(40, 25) == 1000);
+}
+
+TEST_CASE("Test function default params") 
+{
+	REQUIRE(get_total(50) == 50);
+	REQUIRE(get_total(50,2) == 100);
 }
