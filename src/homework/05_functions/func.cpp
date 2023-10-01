@@ -6,9 +6,8 @@ using std::string;
 using std::cout;
 using std::cin;
 
-double get_gc_content(string dna)
+double get_gc_content(const string dna)
 {
-    int count;
     int i = 0;
     int size = dna.size();
 
@@ -17,14 +16,12 @@ double get_gc_content(string dna)
     {
         if(dna[i] == 'G' || dna[i]=='C')
         {
-            count+=1;
+            result+=1.0;
         }
         i++;
     } while (i < size);
     
-
-    result = static_cast<double>(count) / size;
-    return result;
+    return result/size;
 }
 
 
@@ -81,30 +78,33 @@ void menu()
 	    cout<<"3-Exit\n";
         cout<<"Please enter a number to use a menu option: ";
         cin>>useroption;
-
-        switch(useroption)
+        if(useroption ==1 || useroption == 2 || useroption == 3)
         {
-            case 1:
-                cout<<"Please enter a DNA strand to compute GC content: ";
-                cin>>dna;
-                gc_result = get_gc_content(dna);
-                cout<<"The GC content for "<<dna<<" is: "<<gc_result<<".\n\n";
-                break;
-            case 2:
-                cout<<"Please enter a DNA strand to compute DNA complement: ";
-                cin>>dna;
-                dna_Complement = get_dna_complement(dna);
-                cout<<"The DNA complement for "<<dna<<" is: "<<dna_Complement<<".\n\n";
-                break;
-            case 3:
-                cout<<"Thank you for using my program, goodbye.\n";
-                check++;
-                break;
-            default:
-                cout<<"You have entered an invalid option, please try again!\n\n";
-                break;
+            switch(useroption)
+            {
+                case 1:
+                    cout<<"Please enter a DNA strand to compute GC content: ";
+                    cin>>dna;
+                    gc_result = get_gc_content(dna);
+                    cout<<"The GC content for "<<dna<<" is: "<<gc_result<<".\n\n";
+                    break;
+                case 2:
+                    cout<<"Please enter a DNA strand to compute DNA complement: ";
+                    cin>>dna;
+                    dna_Complement = get_dna_complement(dna);
+                    cout<<"The DNA complement for "<<dna<<" is: "<<dna_Complement<<".\n\n";
+                    break;
+                case 3:
+                    cout<<"Thank you for using my program, goodbye.\n";
+                    check++;
+                    break;
+                default:
+                    break;
+            }
+        }
+        else
+        {
+            cout<<"You have entered an invalid option, please try again!\n\n";
         }
     }
-
-
 }
