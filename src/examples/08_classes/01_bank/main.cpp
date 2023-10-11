@@ -1,19 +1,16 @@
 #include "bank_account.h"
 #include<time.h>
+#include "atm.h"
 using std::cout;
 
 int main()
 {
 	srand(time(NULL));
-	say_hello();
 	BankAccount account; //create a variable/an object ---customer 1
-	account.deposit(250);
 	
+	ATM atm(account);
+	atm.display_balamce();
 	cout<<"Balance: "<<account.get_balance()<<"\n";
-
-	BankAccount account2(1000); //customer2
-
-	cout<<"Balance: "<<account2.get_balance()<<"\n";
 
 	return 0;
 }

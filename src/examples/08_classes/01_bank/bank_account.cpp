@@ -22,6 +22,11 @@ void BankAccount::get_balance_from_db()
 {
     balance = rand() %10000 + 1;
 }
+void show_balance(const BankAccount& account)
+{
+    std::cout<<"Friend show balance: "<<account.balance<<"\n";
+}
+
 //NOT PART OF THE BANK ACCOUNT CLASS
 //FREE FUNCTION
 void say_hello()

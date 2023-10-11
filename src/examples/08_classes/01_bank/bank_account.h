@@ -1,8 +1,15 @@
 //bank_account.h
 #include<iostream>
 
+//class header guards
+#ifndef BANK_ACCOUNT_H
+#define BANK_ACCOUNT_H
+
+
 class BankAccount
 {
+    friend void show_balance(const BankAccount& account);
+
     public: //access specifier-other code can access these functions
         //constructor
         BankAccount(){get_balance_from_db();}//no parameter-default constructor
@@ -16,5 +23,6 @@ class BankAccount
 
 };
 
-
 void say_hello();
+#endif
+
