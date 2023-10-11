@@ -1,5 +1,6 @@
 //bank_account.cpp
 #include "bank_account.h"
+#include<stdlib.h>
 
 void BankAccount::deposit(int amount)
 {
@@ -15,6 +16,11 @@ void BankAccount::withdraw(int amount)
     {
         balance-=amount;
     }
+}
+
+void BankAccount::get_balance_from_db()
+{
+    balance = rand() %10000 + 1;
 }
 //NOT PART OF THE BANK ACCOUNT CLASS
 //FREE FUNCTION

@@ -1,9 +1,10 @@
 #include "bank_account.h"
-
+#include<time.h>
 using std::cout;
 
 int main()
 {
+	srand(time(NULL));
 	say_hello();
 	BankAccount account; //create a variable/an object ---customer 1
 	account.deposit(250);

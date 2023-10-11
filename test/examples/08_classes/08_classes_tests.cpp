@@ -14,7 +14,7 @@ TEST_CASE("Test bank account get balance")
 
 TEST_CASE("Test bank account deposit w default constructor") 
 {
-	BankAccount account;
+	BankAccount account(0);
 	REQUIRE(account.get_balance() == 0);
 
 	account.deposit(150);
@@ -35,7 +35,7 @@ TEST_CASE("Test account deposit function")
 
 TEST_CASE("test account withdraw w default constructor")
 {
-	BankAccount account;
+	BankAccount account(0);
 	REQUIRE(account.get_balance() == 0);
 
 	account.withdraw(100);
