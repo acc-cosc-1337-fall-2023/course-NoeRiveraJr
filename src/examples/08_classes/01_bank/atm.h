@@ -14,3 +14,8 @@ class ATM
 
 
 };
+
+//Free function
+void display_menu();
+void run_menu(ATM& atm);
+void handle_menu_option(int option, ATM& atm);
