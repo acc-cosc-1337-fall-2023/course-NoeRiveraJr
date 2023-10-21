@@ -7,7 +7,7 @@
 class CheckingAccount: public BankAccount //inherit from bank account
 {
 public:
-    CheckingAccount();
+    CheckingAccount(){/*Empty CODE BLOCK*/}
     CheckingAccount(int b) : BankAccount(b){}
 private:
 

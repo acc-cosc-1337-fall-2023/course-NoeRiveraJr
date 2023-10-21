@@ -11,9 +11,16 @@ int main()
 	char user_choice = 'y';
 	do
 	{
-		cout<<"Enter first player: ";
+		do
+		{
+		cout<<"Enter first player(either X or O): ";
 		cin>>first_player;
-
+		if(!(first_player == "X" || first_player == "O" || first_player == "x" || first_player == "o"))
+		{
+			cout<<"Invalid input, please try again!\n";
+		}
+		} while(!(first_player == "X" || first_player == "O" || first_player == "x" || first_player == "o"));
+		
 		game.start_game(first_player);
 
 		int position;
@@ -26,6 +33,7 @@ int main()
 			game.display_board();
 		}
 
+		cout<<"Player "<<game.get_winner()<<" is the winner!\n\n";
 		cout<<"Play again, enter y or Y? ";
 		cin>>user_choice;
 

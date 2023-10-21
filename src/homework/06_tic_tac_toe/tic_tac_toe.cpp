@@ -1,11 +1,24 @@
 //cpp
 #include "tic_tac_toe.h"
 
-using std::cout;
+using std::cout, std::string;
 
 bool TicTacToe::game_over()
 {
-    return check_board_full();
+    if(check_column_win() || check_row_win() || check_diagonal_win())
+    {
+        set_winner();
+        return true;
+    }
+    else if(check_board_full())
+    {
+        winner = "C";
+        return true;
+    }
+    else
+    {
+        return false;
+    }
 }
 
 void TicTacToe::start_game(std::string first_player)
@@ -61,4 +74,207 @@ void TicTacToe::set_next_player()
     {
         player = "X";
     }
+}
+
+void TicTacToe::set_winner()
+{
+    if(player == "X")
+    {
+        winner = "O";
+    }
+    else
+    {
+        winner = "X";
+    }
+}
+
+bool TicTacToe::check_column_win()
+{
+    int countX = 0;
+    int countO = 0;
+    for(int i = 0; i <=6; i+=3)
+    {
+        if(pegs[i] == "X")
+        {
+            countX++;
+        }
+        else if(pegs[i] == "O")
+        {
+            countO++;
+        }
+    }
+
+    if(countX == 3 || countO == 3)
+    {
+        return true;
+    }
+    else
+    {
+        countX = 0;
+        countO = 0;
+    }
+
+    for(int i = 1; i <= 7;i+=3)
+    {
+        if(pegs[i] == "X")
+        {
+            countX++;
+        }
+        else if(pegs[i] == "O")
+        {
+            countO++;
+        }
+    }
+
+    if(countX == 3 || countO == 3)
+    {
+        return true;
+    }
+    else
+    {
+        countX = 0;
+        countO = 0;
+    }
+
+    for(int i = 2; i <= 8;i+=3)
+    {
+        if(pegs[i] == "X")
+        {
+            countX++;
+        }
+        else if(pegs[i] == "O")
+        {
+            countO++;
+        }
+    }
+
+    if(countX == 3 || countO == 3)
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
+
+}
+
+bool TicTacToe::check_row_win()
+{
+    int countX = 0;
+    int countO = 0;
+    for(int i = 0; i <=2; i++)
+    {
+        if(pegs[i] == "X")
+        {
+            countX++;
+        }
+        else if(pegs[i] == "O")
+        {
+            countO++;
+        }
+    }
+
+    if(countX == 3 || countO == 3)
+    {
+        return true;
+    }
+    else
+    {
+        countX = 0;
+        countO = 0;
+    }
+
+    for(int i = 3; i <= 5;i++)
+    {
+        if(pegs[i] == "X")
+        {
+            countX++;
+        }
+        else if(pegs[i] == "O")
+        {
+            countO++;
+        }
+    }
+
+    if(countX == 3 || countO == 3)
+    {
+        return true;
+    }
+    else
+    {
+        countX = 0;
+        countO = 0;
+    }
+
+    for(int i = 6; i <= 8;i++)
+    {
+        if(pegs[i] == "X")
+        {
+            countX++;
+        }
+        else if(pegs[i] == "O")
+        {
+            countO++;
+        }
+    }
+
+    if(countX == 3 || countO == 3)
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
+
+}
+
+bool TicTacToe::check_diagonal_win()
+{
+    int countX = 0;
+    int countO = 0;
+    for(int i = 0; i <= 8;i+=4)
+    {
+        if(pegs[i] == "X")
+        {
+            countX++;
+        }
+        else if(pegs[i] == "O")
+        {
+            countO++;
+        }
+    }
+
+    if(countX == 3 || countO == 3)
+    {
+        return true;
+    }
+    else
+    {
+        countX = 0;
+        countO = 0;
+    }
+
+    for(int i = 2; i <= 6;i+=2)
+    {
+        if(pegs[i] == "X")
+        {
+            countX++;
+        }
+        else if(pegs[i] == "O")
+        {
+            countO++;
+        }
+    }
+
+    if(countX == 3 || countO == 3)
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
+
 }
