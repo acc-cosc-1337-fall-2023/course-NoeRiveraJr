@@ -9,17 +9,23 @@ int main()
 {
 	srand(time(NULL));
 
-	CheckingAccount account(500);
-
-	cout<<account.get_balance();
+	BankAccount* account;
 	
+	/*CheckingAccount checking_account(500);
+	account = &checking_account;
+	cout<<account->get_balance()<<"\n"; */
+	
+	SavingsAccount savings_account(500);
+	account = &savings_account;
 
-	 // BankAccount account; //create a variable/an object ---customer 1
+	cout<<account->get_balance()<<"\n"; 
+
+	 //BankAccount account; //create a variable/an object ---customer 1
 	
 	ATM atm(account);
 	run_menu(atm);
 
-	cout<<"Balance: "<<account.get_balance()<<"\n"; 
+	cout<<"Balance: "<<account->get_balance()<<"\n"; 
 	
 
 	return 0;

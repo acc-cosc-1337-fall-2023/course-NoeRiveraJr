@@ -6,7 +6,7 @@ using std::cin;
 
 void ATM::display_balamce()
 {
-    cout<<"ATM balance: "<<account.get_balance()<<"\n";
+    cout<<"ATM balance: "<<account->get_balance()<<"\n";
 }
 
 void ATM::make_deposit()
@@ -15,7 +15,7 @@ void ATM::make_deposit()
     cout<<"Enter amount to deposit: ";
     cin>>amount;
 
-    account.deposit(amount);
+    account->deposit(amount);
 }
 
 void ATM::make_withdrawl()
@@ -23,7 +23,7 @@ void ATM::make_withdrawl()
     auto amount = 0;
     cout<<"Enter amount to withdraw: ";
     cin>>amount;
-    account.withdraw(amount);
+    account->withdraw(amount);
 }
 
 void display_menu()
