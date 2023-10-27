@@ -26,6 +26,12 @@ void ATM::make_withdrawl()
     account->withdraw(amount);
 }
 
+void ATM::scan_card()
+{
+    account_index = rand() % accounts.size();
+    account = accounts[account_index];
+}
+
 void display_menu()
 {
     cout<<"\n";
@@ -38,9 +44,10 @@ void display_menu()
 void run_menu(ATM& atm)
 {
     auto option = 0;
-
+    atm.scan_card();
     do
     {
+        
         display_menu();
 
         cout<<"Enter menu option: ";

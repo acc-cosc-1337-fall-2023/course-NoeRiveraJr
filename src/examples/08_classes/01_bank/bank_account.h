@@ -1,5 +1,6 @@
 //bank_account.h
 #include<iostream>
+#include<stdlib.h>
 
 //class header guards
 #ifndef BANK_ACCOUNT_H
