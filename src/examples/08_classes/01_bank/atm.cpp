@@ -6,11 +6,15 @@ using std::cin;
 
 void ATM::display_balamce()
 {
+    Customer& customer = customers[customer_index];
+    std::unique_ptr<BankAccount>& account = customer.get_account(account_index);
     cout<<"ATM balance: "<<account->get_balance()<<"\n";
 }
 
 void ATM::make_deposit()
 {
+    auto& customer = customers[customer_index];
+    auto& account = customer.get_account(account_index);
     auto amount = 0;
     cout<<"Enter amount to deposit: ";
     cin>>amount;
@@ -20,6 +24,8 @@ void ATM::make_deposit()
 
 void ATM::make_withdrawl()
 {
+    auto& customer = customers[customer_index];
+    auto& account = customer.get_account(account_index);
     auto amount = 0;
     cout<<"Enter amount to withdraw: ";
     cin>>amount;
@@ -28,8 +34,9 @@ void ATM::make_withdrawl()
 
 void ATM::scan_card()
 {
-    account_index = rand() % accounts.size();
-    account = accounts[account_index];
+    customer_index = rand() % customers.size();
+    cout<<"Enter 1 for checking 2 for savings: ";
+    cin>>account_index;
 }
 
 void display_menu()
