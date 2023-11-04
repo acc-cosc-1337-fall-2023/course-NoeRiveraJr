@@ -12,7 +12,8 @@ int main()
 	char user_choice = 'y';
 	do
 	{
-		TicTacToe game;
+		std::unique_ptr<TicTacToe> game = std::make_unique<TicTacToe>();
+		
 		do
 		{
 		cout<<"Enter first player(either X or O): ";
@@ -23,19 +24,19 @@ int main()
 		}
 		} while(!(first_player == "X" || first_player == "O" || first_player == "x" || first_player == "o"));
 		
-		game.start_game(first_player);
+		game->start_game(first_player);
 
 		int position;
 
-		while(!game.game_over())
+		while(!game->game_over())
 		{
 			cout<<"Enter a position: ";
 			cin>>position;
-			game.mark_board(position);
-			game.display_board();
+			game->mark_board(position);
+			game->display_board();
 		}
 		manager.save_game(game);
-		cout<<"Player "<<game.get_winner()<<" is the winner!\n\n";
+		cout<<"Player "<<game->get_winner()<<" is the winner!\n\n";
 
 		int o,x,t;
 		manager.get_winner_totals(x, o, t);

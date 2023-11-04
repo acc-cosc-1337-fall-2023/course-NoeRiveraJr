@@ -1,32 +1,192 @@
 #include "tic_tac_toe_3.h"
 
-/*
-class function check_column_win
-Win by column if and return true if
-0,3, and 6 are equal
-1, 4, and 7
-2, 5, and 8
-else
-false
-*/
+bool TicTacToe::check_column_win()
+{
+    int countX = 0;
+    int countO = 0;
+    for(int i = 0; i <=6; i+=3)
+    {
+        if(pegs[i] == "X")
+        {
+            countX++;
+        }
+        else if(pegs[i] == "O")
+        {
+            countO++;
+        }
+    }
 
+    if(countX == 3 || countO == 3)
+    {
+        return true;
+    }
+    else
+    {
+        countX = 0;
+        countO = 0;
+    }
 
+    for(int i = 1; i <= 7;i+=3)
+    {
+        if(pegs[i] == "X")
+        {
+            countX++;
+        }
+        else if(pegs[i] == "O")
+        {
+            countO++;
+        }
+    }
 
-/*
-class function check_row_win
-Win by row if
-0, 1, 2 are equal
-3,4,5 are equal
-6,7,8 are equal
-*/
+    if(countX == 3 || countO == 3)
+    {
+        return true;
+    }
+    else
+    {
+        countX = 0;
+        countO = 0;
+    }
 
+    for(int i = 2; i <= 8;i+=3)
+    {
+        if(pegs[i] == "X")
+        {
+            countX++;
+        }
+        else if(pegs[i] == "O")
+        {
+            countO++;
+        }
+    }
 
+    if(countX == 3 || countO == 3)
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
 
-/*
-class function check_diagonal_win
-Win diagonally
-0 1 2
-3 4 5
-6 7 8
+}
 
-*/
+bool TicTacToe::check_row_win()
+{
+    int countX = 0;
+    int countO = 0;
+    for(int i = 0; i <=2; i++)
+    {
+        if(pegs[i] == "X")
+        {
+            countX++;
+        }
+        else if(pegs[i] == "O")
+        {
+            countO++;
+        }
+    }
+
+    if(countX == 3 || countO == 3)
+    {
+        return true;
+    }
+    else
+    {
+        countX = 0;
+        countO = 0;
+    }
+
+    for(int i = 3; i <= 5;i++)
+    {
+        if(pegs[i] == "X")
+        {
+            countX++;
+        }
+        else if(pegs[i] == "O")
+        {
+            countO++;
+        }
+    }
+
+    if(countX == 3 || countO == 3)
+    {
+        return true;
+    }
+    else
+    {
+        countX = 0;
+        countO = 0;
+    }
+
+    for(int i = 6; i <= 8;i++)
+    {
+        if(pegs[i] == "X")
+        {
+            countX++;
+        }
+        else if(pegs[i] == "O")
+        {
+            countO++;
+        }
+    }
+
+    if(countX == 3 || countO == 3)
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
+
+}
+
+bool TicTacToe::check_diagonal_win()
+{
+    int countX = 0;
+    int countO = 0;
+    for(int i = 0; i <= 8;i+=4)
+    {
+        if(pegs[i] == "X")
+        {
+            countX++;
+        }
+        else if(pegs[i] == "O")
+        {
+            countO++;
+        }
+    }
+
+    if(countX == 3 || countO == 3)
+    {
+        return true;
+    }
+    else
+    {
+        countX = 0;
+        countO = 0;
+    }
+
+    for(int i = 2; i <= 6;i+=2)
+    {
+        if(pegs[i] == "X")
+        {
+            countX++;
+        }
+        else if(pegs[i] == "O")
+        {
+            countO++;
+        }
+    }
+
+    if(countX == 3 || countO == 3)
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
+
+}
