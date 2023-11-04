@@ -9,6 +9,7 @@ class TicTacToe
 {
 public:
     TicTacToe(int s) : pegs(s*s, " "){}
+    std::vector<std::string> pegs;
     bool game_over();
     void start_game(std::string first_player);
     void mark_board(int position);
@@ -18,7 +19,6 @@ public:
 private:
     std::string player;
     std::string winner;
-    std::vector<std::string> pegs;
     void clear_board();
     void set_next_player();
     void set_winner();

@@ -1,6 +1,6 @@
 #include "tic_tac_toe_3.h"
 
-bool TicTacToe::check_column_win()
+bool TicTacToe3::check_column_win()
 {
     int countX = 0;
     int countO = 0;
@@ -71,7 +71,7 @@ bool TicTacToe::check_column_win()
 
 }
 
-bool TicTacToe::check_row_win()
+bool TicTacToe3::check_row_win()
 {
     int countX = 0;
     int countO = 0;
@@ -142,7 +142,7 @@ bool TicTacToe::check_row_win()
 
 }
 
-bool TicTacToe::check_diagonal_win()
+bool TicTacToe3::check_diagonal_win()
 {
     int countX = 0;
     int countO = 0;

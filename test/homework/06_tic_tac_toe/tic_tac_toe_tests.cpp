@@ -2,6 +2,8 @@
 #include "catch.hpp"
 #include "tic_tac_toe.h"
 #include "tic_tac_toe_manager.h"
+#include "tic_tac_toe_3.h"
+#include "tic_tac_toe_4.h"
 
 TEST_CASE("Verify Test Configuration", "verification") {
 	REQUIRE(true == true);
@@ -9,7 +11,7 @@ TEST_CASE("Verify Test Configuration", "verification") {
 
 TEST_CASE("Test if the board is full and game is a tie") 
 {
-	std::unique_ptr<TicTacToe> game = std::make_unique<TicTacToe>(10);
+	std::unique_ptr<TicTacToe> game = std::make_unique<TicTacToe3>();
 	game->start_game("X");
 	game->mark_board(1);
 	REQUIRE(game->game_over()==false);
