@@ -2,6 +2,7 @@
 #include "bank_account.h"
 #include<stdlib.h>
 
+
 void BankAccount::deposit(int amount)
 {
     if(amount > 0)//the class sets the rules for modifying its data

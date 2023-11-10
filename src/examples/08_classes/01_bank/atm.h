@@ -8,19 +8,18 @@
 class ATM
 {
     public:
-        ATM(std::vector<Customer>& a) : customers(a){}
+        ATM(BankAccount* a) : account(a){}
         void display_balamce();
         void make_deposit();
         void make_withdrawl();
-        void scan_card();
     private:
-        std::vector<Customer>& customers;
-        int customer_index;
+        BankAccount* account;
         int account_index;
 
 };
 
 //Free function
+int scan_card(int max_value);
 void display_menu();
 void run_menu(ATM& atm);
 void handle_menu_option(int option, ATM& atm);

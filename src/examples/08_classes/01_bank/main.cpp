@@ -18,8 +18,7 @@ int main()
 	customers.push_back(Customer(3, "John Hancock"));
 	customers.push_back(Customer(4, "Bjarne Stroustrup"));
 
-	ATM atm(customers);
-	run_menu(atm);
+
 
 	return 0;
 }

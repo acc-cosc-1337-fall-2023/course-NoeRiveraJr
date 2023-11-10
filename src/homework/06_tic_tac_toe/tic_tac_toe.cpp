@@ -35,15 +35,25 @@ void TicTacToe::mark_board(int position)
 
 void TicTacToe::display_board() const
 {
-    for(long unsigned int i = 0; i < pegs.size(); i+=3)
+    if(pegs.size() == 12)
     {
-        cout<<pegs[i]<<"|"<<pegs[i+1]<<"|"<<pegs[i+2]<<"\n";
+        for(auto i = 0; i < pegs.size(); i+=3)
+        {
+            cout<<pegs[i]<<"|"<<pegs[i+1]<<"|"<<pegs[i+2]<<"\n";
+        }
+    }
+    else
+    {
+        for(auto i = 0; i < pegs.size(); i+=4)
+        {
+            cout<<pegs[i]<<"|"<<pegs[i+1]<<"|"<<pegs[i+2]<<"|"<<pegs[i+3]<<"\n";
+        }
     }
 }
 
 bool TicTacToe::check_board_full()
 {
-    for(long unsigned int i = 0; i <pegs.size(); i++)
+    for(auto i = 0; i <pegs.size(); i++)
     {
         if(pegs[i]== " ")
         {
