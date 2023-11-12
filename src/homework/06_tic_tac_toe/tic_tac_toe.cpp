@@ -35,7 +35,7 @@ void TicTacToe::mark_board(int position)
 
 void TicTacToe::display_board() const
 {
-    if(pegs.size() == 12)
+    if(pegs.size()== 9)
     {
         for(auto i = 0; i < pegs.size(); i+=3)
         {

@@ -202,7 +202,7 @@ bool TicTacToe4::check_diagonal_win()
         }
     }
 
-    if(countX == 5 || countO == 5)
+    if(countX == 4 || countO == 4)
     {
         return true;
     }
