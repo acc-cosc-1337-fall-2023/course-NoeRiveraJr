@@ -1,7 +1,7 @@
 //write code for for stack_array and display each element to screen
 #include "arrays_mem.h"
 
-using std::cout;
+using std::cout; using std::string;
 
 void use_stack_array()
 {
@@ -9,6 +9,53 @@ void use_stack_array()
     int nums[SIZE]{5,7,0}; //stack array(list)
 
     for(int i = 0; i < SIZE;i++)
+    {
+        cout<<nums[i]<<"\n";
+    }
+}
+
+void use_parallel_array()
+{
+    const auto SIZE = 3;
+    int month_numbers[SIZE]{1,2,3};
+    string month_names[SIZE]{"Jan","Feb","Mar"};
+
+    for(auto i = 0; i < SIZE; i++)
+    {
+        cout<<month_numbers[i]<<" "<<month_names[i]<<"\n";
+    }
+}
+
+void arrays_and_pointers()
+{
+    const auto SIZE = 3;
+
+    int nums[SIZE]{5,7,0}; //stack array(list)
+
+    cout<<nums<<"\n";
+
+    int* ptr = nums;
+    cout<<ptr<<" "<<*ptr<<"\n";
+
+    *ptr++;
+    cout<<ptr<<" "<<*ptr<<"\n";
+
+    *ptr++;
+    cout<<ptr<<" "<<*ptr<<"\n";
+}
+
+void display_array(int* nums)
+{//sentinel value -1
+    for(auto i = 0; nums[i] != -1; i++)
+    {
+        cout<<nums[i]<<"\n";
+    }
+    cout<<"\n";
+}
+
+void display_array(int* nums, const int SIZE)
+{
+    for(auto i =0; i < SIZE; i++)
     {
         cout<<nums[i]<<"\n";
     }
