@@ -38,7 +38,6 @@ int main()
 		{
 			game = std::make_unique<TicTacToe4>();
 		}
-
 		do
 			{
 			cout<<"Enter first player(either X or O): ";
