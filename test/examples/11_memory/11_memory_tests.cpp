@@ -22,3 +22,9 @@ TEST_CASE("Test my vector creation overwrite an existing Vector variable")
 	v2 = v1;
 	
 }
+
+TEST_CASE("Test overwrite")
+{
+	Vector v1(3);
+	
+}

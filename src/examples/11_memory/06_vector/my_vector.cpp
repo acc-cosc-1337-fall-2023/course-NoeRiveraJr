@@ -1,11 +1,18 @@
 #include "my_vector.h"
 
 using std::cout;
-//
+
+
 Vector::Vector(int size)
 : size{0},capacity{size},elements{new int[size]}
 {
     cout<<"Constructor-New memory created at "<<elements<<"\n";
+}
+
+Vector::Vector()
+:size{0},capacity{0},elements{nullptr}
+{
+    
 }
 
 /**
@@ -53,11 +60,77 @@ Vector& Vector::operator=(const Vector& v1)
 }
 
 
+Vector::Vector(Vector&& v1)
+: size{v1.size}, elements{v1.elements}
+{
+    cout<<"Move constructor-Memory pointer switched"<<"\n";
+    v1.elements = nullptr;
+    v1.size = 0;
+}
+
+Vector& Vector::operator=(Vector&& v2)
+{
+    cout<<"Move assignment-Delete memory"<<elements<<"\n";
+    delete[] elements;
+
+    elements = v2.elements;
+    cout<<"Move assignment-Memory pointer switched"<<elements<<"\n";
+
+    size = v2.size;
+    v2.elements = nullptr;
+    v2.size = 0;
+
+    return *this;
+
+}
+
+
+void Vector::Reserve(int new_size)
+{
+    if(new_size <= capacity)
+    {
+        return;
+    }
+
+    int* temp = new int[new_size];
+    cout<<"Reserve-Memory created.."<<temp<<"\n";
+
+    for(auto i = 0; i < size;i++)
+    {
+        temp[i] = elements[i];
+    }
+    
+    cout<<"Reserve-Delete old memory "<<elements<<"\n";
+    delete[] elements;
+
+    elements = temp;
+    capacity = new_size;
+}
+
+void Vector::Push_Back(int value)
+{
+    
+    if(capacity == 0)
+    {
+        Reserve(RESERVE_DEFAULT_SIZE);
+    }
+    else if(capacity == size)
+    {
+        Reserve(capacity * RESERVE_DEFAULT_MULTIPLIER);
+    }
+
+    elements[size] = value;
+    size++;
+
+}
+
 Vector::~Vector()
 {
     cout<<"Delete memory at "<<elements<<"\n";
     delete[] elements;
 }
+
+
 
 void use_vector()
 {
