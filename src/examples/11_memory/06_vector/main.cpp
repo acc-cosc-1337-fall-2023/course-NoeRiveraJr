@@ -5,7 +5,8 @@ using std::cout;
 
 int main()
 {
-    Vector v();
+    Vector v;
+    v.Push_Back(2);
     
 
     return 0;
